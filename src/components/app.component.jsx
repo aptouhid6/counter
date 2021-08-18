@@ -4,14 +4,14 @@ import Navbar from './navbar.component';
 import Counters from './counters.component';
 
 class App extends Component {
-    state = {  }
+    state = {  };
 
     render() { 
         return ( 
             <>
-                <Navbar/>
-
-                <Counters/>
+                <Navbar />
+                
+                <Counters />
             </>
          );
     }

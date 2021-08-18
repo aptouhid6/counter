@@ -1,40 +1,18 @@
 import React, { Component } from 'react';
 
 class Counter extends Component {
-    state = {
-        // items: [0, 2],
-        counter: 0,
-    }
     
     formatCount = () => {
-        // if(this.state.items[0] === 0) return 'Zero';
-        // return this.state.items[0];
         if(this.state.counter === 0) return 'Zero';
         return this.state.counter;
-    }
-
-    handleIncrement = () => {
-        // const arra = [...this.state.items];
-        // arra[0]++;
-        // this.setState({ items: arra });
-
-        // this.state.counter++;
-        this.setState({ counter: this.state.counter + 1 });
-    }
-    handleDecrement = () => {
-        // const arra = [...this.state.items];
-        // arra[0]--;
-        // this.setState({ items: arra });
-
-        if(this.state.counter > 0) this.setState({ counter: this.state.counter - 1 });
     }
 
     render() { 
         return (
             <div>
-                <span className="badge bg-primary">{this.formatCount()}</span>
-                <button onClick={this.handleIncrement} type="button" className="btn btn-secondary m-2">+</button>
-                <button onClick={this.handleDecrement} type="button" className="btn btn-secondary m-2">-</button>
+                <span className="badge bg-primary m-2">{this.props.value}</span>
+                <button onClick={() => this.props.onIncrement(this.props.id)} type="button" className="btn btn-secondary m-2">+</button>
+                <button onClick={() => this.props.onDecrement(this.props.id)} type="button" className="btn btn-secondary m-2">-</button>
                 <button type="button" className="btn btn-danger m-2">Delete</button>
             </div>
                     
