@@ -15,6 +15,24 @@ class App extends Component {
         ]
      }
 
+     constructor() {
+         super();
+         console.log('constructor');
+     }
+
+     componentDidMount(){
+         console.log('Component did mount');
+     };
+
+     componentDidUpdate() {
+         console.log('Component did update');
+     }
+     
+     componentWillUpdate() {
+        console.log('a Component is removed from the dom');
+    }
+
+
      handleReset = () => {
         const all_counters = this.state.counters.map((counter, idx) => {
            const obj = { id: idx, value: 0 };
@@ -49,7 +67,12 @@ class App extends Component {
        return cnt;
    }
 
-    render() { 
+   handleDelete = (id) => {
+       const counters = this.state.counters.filter(counter => counter.id != id);
+       this.setState({counters: counters});
+   }
+
+    render() { console.log('render');
         return ( 
             <>
                 <Navbar nonZeroItems={this.getNonZeroItems()} />
@@ -60,6 +83,7 @@ class App extends Component {
                     counters={this.state.counters}
                     onIncrement={this.handleIncrement}
                     onDecrement={this.handleDecrement}
+                    onDelete={this.handleDelete}
                 />
             </>
          );

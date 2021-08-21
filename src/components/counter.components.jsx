@@ -13,7 +13,7 @@ class Counter extends Component {
                 <span className="badge bg-primary m-2">{this.props.value}</span>
                 <button onClick={() => this.props.onIncrement(this.props.id)} type="button" className="btn btn-secondary m-2">+</button>
                 <button onClick={() => this.props.onDecrement(this.props.id)} type="button" className="btn btn-secondary m-2">-</button>
-                <button type="button" className="btn btn-danger m-2">Delete</button>
+                <button onClick={() => this.props.onDelete(this.props.id)} type="button" className="btn btn-danger m-2">Delete</button>
             </div>
                     
         );
